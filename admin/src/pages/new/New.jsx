@@ -7,13 +7,14 @@ import axios from "axios";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
+  const [info, setInfo] = useState({});
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }))
   }
 
 
-  const handleClick = async e => {
+  const handleClick = async (e) => {
     e.preventDefault
 
     const data = new FormData()

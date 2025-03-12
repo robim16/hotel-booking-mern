@@ -46,7 +46,7 @@ const Reserve = ({setOpen, hotelId}) => {
     }
 
     const handleSelect = (e)=> {
-        const selected = e.target.checked
+        const checked = e.target.checked;
         const value = e.target.value
         setSelectedRooms(
             checked ? [...selectedRooms, value] 

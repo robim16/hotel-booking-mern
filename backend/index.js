@@ -15,7 +15,7 @@ dotenv.config();
 const connect = async () => {
     try {
 
-        await mongoose.connect('mongodb://localhost/' + process.env.DATABASE,
+        await mongoose.connect('mongodb://localhost/' + process.env.MONGODB_URI,
             {
                 useNewUrlParser: true,
                 // useCreateIndex: true,
@@ -39,6 +39,12 @@ mongoose.connection.on("disconected", () => {
 app.use(cookieParser())
 app.use(express.json())
 
+
+app.use(cors());
+
+app.use(cors({
+    origin: ["http://localhost:3000", "https://origin2.com"]  //to be changed later to vercel url
+}));
 
 app.use('/api/auth', authRoute)
 app.use('/api/users', usersRoute)
