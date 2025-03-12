@@ -65,8 +65,8 @@ app.use((err, req, res, next)=> {
    })
 })
 
-app.listen(8800, ()=> {
+app.listen(8080, ()=> {
     connect()
-    console.log("server running in port 8800")
+    console.log("server running in port 8080")
 })
 
