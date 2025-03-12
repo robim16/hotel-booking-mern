@@ -43,7 +43,7 @@ app.use(express.json())
 app.use(cors());
 
 app.use(cors({
-    origin: ["http://localhost:3000", "https://hotel-booking-frontend-sand-three.vercel.app/", "https://hotel-booking-frontend-sand-three.vercel.app"]  //to be changed later to vercel url
+    origin: "https://hotel-booking-frontend-sand-three.vercel.app/"//to be changed later to vercel url
 }));
 
 app.use('/api/auth', authRoute)
