@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   }, 
-  "proxy":"http://localhost:8800/api"
+  "proxy":"https://hotel-booking-backend-gilt.vercel.app:8080/api"
 }
