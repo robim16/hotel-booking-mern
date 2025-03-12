@@ -86,17 +86,9 @@ export const countByCity = async (req, res, next) => {
         
         const list = await Promise.all(cities.map(city => {
             return Hotel.countDocuments({city:city})
-
-            // Hotel.find({city:city}).length
         })) 
 
-        res.status(200).json([
-            { type: "hotel", count: hotelCount },
-            { type: "apartments", count: apartmentCount },
-            { type: "resort", count: resortCount },
-            { type: "villas", count: villaCount },
-            { type: "cabins", count: cabinCount }
-        ])
+        res.status(200).json(list);
 
     } catch (error) {
         next(error)
@@ -107,13 +99,19 @@ export const countByCity = async (req, res, next) => {
 export const countByType = async (req, res, next) => {
     try {
         
-        const hotelCount = await Hotel.countDocumens({type:"hotel"})
-        const apartmentCount = await Hotel.countDocumens({type:"apartment"})
-        const resortCount = await Hotel.countDocumens({type:"resort"})
-        const villaCount = await Hotel.countDocumens({type:"villa"})
-        const cabinCount = await Hotel.countDocumens({type:"cabin"})
+        const hotelCount = await Hotel.countDocuments({type:"hotel"})
+        const apartmentCount = await Hotel.countDocuments({type:"apartment"})
+        const resortCount = await Hotel.countDocuments({type:"resort"})
+        const villaCount = await Hotel.countDocuments({type:"villa"})
+        const cabinCount = await Hotel.countDocuments({type:"cabin"})
 
-        res.status(200).json(list)
+        res.status(200).json([
+            { type: "hotel", count: hotelCount },
+            { type: "apartments", count: apartmentCount },
+            { type: "resorts", count: resortCount },
+            { type: "villas", count: villaCount },
+            { type: "cabins", count: cabinCount },
+        ]);
 
     } catch (error) {
         next(error)
@@ -135,4 +133,4 @@ export const getHotelRooms = async (req, res, next) => {
     } catch (error) {
         
     }
-}//2:34:16
+}
