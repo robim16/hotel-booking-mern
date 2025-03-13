@@ -15,7 +15,7 @@ dotenv.config();
 const connect = async () => {
     try {
 
-        await mongoose.connect('mongodb://localhost/' + process.env.MONGODB_URI,
+        await mongoose.connect(process.env.MONGODB_URI,
             {
                 useNewUrlParser: true,
                 // useCreateIndex: true,
